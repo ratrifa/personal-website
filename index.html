@@ -3,528 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles." />
+    <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/3b4c891386.js" crossorigin="anonymous"></script>
     <title>Personal Website</title>
-    <style>
-      /* Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #ffffff;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      /* Navigation */
-      .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: #090040;
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: all 0.3 ease;
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo > h2 {
-        color: #b13bff;
-      }
-
-      .nav-menu {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-      }
-
-      .nav-link {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .nav-link:hover {
-        color: #b13bff;
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #b13bff;
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      /* Hero Section */
-      .hero {
-        padding: 120px 0 80px;
-        background: linear-gradient(135deg, #471396 0%, #b13bff 100%);
-        color: white;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-      }
-
-      .hero-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-      }
-
-      .hero-title {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-
-      .highlight {
-        font-weight: 800;
-        color: #fbbf24;
-      }
-
-      .hero-subtitle {
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .hero-description {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.2;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        padding: 12px 24px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-block;
-        border: 2px solid transparent;
-      }
-
-      .btn-primary {
-        background-color: #fbbf24;
-        color: #1f2937;
-      }
-
-      .btn-primary:hover {
-        background: #f59e0b;
-        transform: translateY(-2px);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: white;
-        border-color: white;
-      }
-
-      .btn-secondary:hover {
-        background: white;
-        color: #667eea;
-        transform: translateY(-2px);
-      }
-
-      .image-container {
-        position: relative;
-        width: 400px;
-        height: 400px;
-        margin: 0 auto;
-      }
-
-      .image-container img {
-        border: 4px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-      }
-
-      /* Section Style */
-      .section-title {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 3rem;
-        color: rgba(255, 255, 255, 0.8);
-        position: relative;
-      }
-
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
-        background: #b13bff;
-        border-radius: 2px;
-      }
-
-      /* About Section */
-      .about {
-        color: rgba(255, 255, 255, 0.8);
-        padding: 80px 0;
-        background: #090040;
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 4rem;
-        align-items: center;
-      }
-
-      .about-text p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
-      }
-
-      .skills {
-        margin-top: 2rem;
-      }
-
-      .skills h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-      }
-
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .skill-tag {
-        background: #471396;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      .about-image > img {
-        width: 300px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Project Section */
-      .projects {
-        padding: 80px 0;
-        background: #090040;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-      }
-
-      .project-card {
-        padding: 12px;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .project-image {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .project-image img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .project-card:hover,
-      .project-image img {
-        transform: scale(1.05);
-      }
-
-      .project-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgb(71, 19, 150, 0.8);
-        display: flex;
-        align-items: center;
-        gap: 3rem;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .project-card:hover .project-overlay {
-        opacity: 1;
-      }
-
-      .project-links {
-        display: flex;
-        gap: 3rem;
-      }
-
-      .project-link {
-        background: white;
-        color: #471396;
-        padding: 8px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .project-link:hover {
-        background: #f3f4f6;
-        transform: translateY(-2px);
-      }
-
-      .project-content {
-        padding: 1.5rem;
-      }
-
-      .project-content .project-status {
-        font-size: 1rem;
-        margin-bottom: 0.9rem;
-      }
-
-      .project-status h5 {
-        padding-left: 7px;
-      }
-
-      .project-content .project-status::after {
-        content: "";
-        position: absolute;
-        transform: translateY(-22.5px);
-        width: 4px;
-        height: 24px;
-        background-color: #ffcc00;
-        border-radius: 2px;
-      }
-
-      .project-content h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        color: #1f2937;
-      }
-
-      .project-content p {
-        color: #6b7280;
-        margin-bottom: 1rem;
-        line-height: 1.6;
-      }
-
-      .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .project-tech span {
-        color: white;
-        background: #471396;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-
-      /* Conctact Section */
-      .contact {
-        padding: 80px 0;
-        color: rgba(255, 255, 255, 0.8);
-        background: linear-gradient(135deg, #471396 0%, #b13bff 100%);
-      }
-
-      .contact-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-      }
-
-      .contact-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .contact-info p {
-        margin-bottom: 2rem;
-        line-height: 1.6;
-      }
-
-      .contact-methods {
-        margin-bottom: 2rem;
-      }
-
-      .contact-method {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .contact-icon {
-        font-size: 1.5rem;
-        width: 50px;
-        height: 50px;
-        background: #471396;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .contact-method h4 {
-        font-size: 1.1rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .contact-method p {
-        margin: 0;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .social-link {
-        background: #471396;
-        color: white;
-        border-radius: 6px;
-        padding: 8px 16px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-
-      .social-link:hover {
-        background: #471396c0;
-        transform: translateY(-2px);
-      }
-
-      /* Form Styles */
-      .contact-form {
-        background: #471396;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .form-group {
-        margin-bottom: 1.5rem;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 2px solid #e5e7eb;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #b13bff;
-      }
-
-      .form-group textarea {
-        resize: none;
-      }
-
-      .contact-form .btn {
-        width: 100%;
-        background: #b13bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-      }
-
-      .contact-form .btn:hover {
-        background: #b13bffc7;
-      }
-
-      /* Footer */
-      footer {
-        background: #471396;
-        color: white;
-        padding: 0.5rem 0;
-        text-align: center;
-      }
-
-      .footer-content .copyright {
-        margin-bottom: 0.5rem;
-      }
     </style>
   </head>
   <body>
@@ -608,15 +92,15 @@
             <!-- Project 1 -->
             <div class="project-card">
               <div class="project-image">
-                <img src="img/profile-1.jpg" height="250" width="400" alt="Project 1" />
+                <img src="img/restaurant-menu.png" height="250" width="400" alt="Project 1" />
                 <div class="project-overlay">
-                  <a href="#" target="_blank" class="project-link">Live Demo</a>
-                  <a href="#" target="_blank" class="project-link">Source Code</a>
+                  <a href="#" target="_blank" class="project-link"><i class="fa-solid fa-circle-play"></i>Live Demo</a>
+                  <a href="https://github.com/ratrifa/restaurant-menu" target="_blank" class="project-link"><i class="fa-solid fa-code"></i>Source Code</a>
                 </div>
               </div>
               <div class="project-content">
                 <h3>Restaurant Menu</h3>
-                <div class="project-status">
+                <div id="restaurantMenu" class="project-status">
                   <h5>Educational Purpose</h5>
                 </div>
                 <p>This is a simple static website for the MieGacoan restaurant menu. It displays menu items with images and allows users to place orders via a form.</p>
@@ -631,18 +115,17 @@
               <div class="project-image">
                 <img src="img/silakop.png" height="250" width="400" alt="Project 2" />
                 <div class="project-overlay">
-                  <!-- <a href="#" target="_blank" class="project-link">Live Demo</a> -->
-                  <a href="https://github.com/ratrifa/SilaKop" target="_blank" class="project-link">Source Code</a>
+                  <!-- <a href="#" target="_blank" class="project-link"><i class="fa-solid fa-circle-play"></i>Live Demo</a> -->
+                  <a href="https://github.com/ratrifa/SilaKop" target="_blank" class="project-link"><i class="fa-solid fa-code"></i>Source Code</a>
                 </div>
               </div>
               <div class="project-content">
                 <h3>SilaKop</h3>
-                <div class="project-status">
+                <div id="silaKop" class="project-status">
                   <h5>Under Development</h5>
                 </div>
                 <p>
-                  SilaKop is a web application that provides an administrative dashboard to manage various aspects of a cooperative, including member management, finances, and daily operations. The system is built using modern web
-                  technologies to offer an optimal user experience.
+                  SilaKop is a web dashboard for managing cooperatives—covering members, finances, and daily operations—built with modern web technologies for an optimal user experience.
                 </p>
                 <div class="project-tech">
                   <span>HTML</span>
@@ -655,20 +138,19 @@
             <!-- Project 3 -->
             <div class="project-card">
               <div class="project-image">
-                <img src="img/profile-1.jpg" height="250" width="400" alt="Project 2" />
+                <img src="img/personal-website.png" height="250" width="400" alt="Project 2" />
                 <div class="project-overlay">
-                  <a href="#" target="_blank" class="project-link">Live Demo</a>
-                  <a href="#" target="_blank" class="project-link">Source Code</a>
+                  <a href="#" target="_blank" class="project-link"><i class="fa-solid fa-circle-play"></i>Live Demo</a>
+                  <a href="#" target="_blank" class="project-link"><i class="fa-solid fa-code"></i>Source Code</a>
                 </div>
               </div>
               <div class="project-content">
-                <h3>Portofolio</h3>
-                <!-- <div class="project-status">
+                <h3>Personal Website</h3>
+                <div id="personalWebsite" class="project-status">
                   <h5>Under Development</h5>
-                </div> -->
+                </div> 
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquid blanditiis necessitatibus tenetur aliquam atque reprehenderit cupiditate quos quaerat doloribus iure repellendus dolorum maiores, eos sint. Tempore
-                  officiis blanditiis praesentium.
+                  A modern, responsive personal website for Satria Febry, built with HTML and CSS. This site showcases projects, skills, and contact information, and is designed for easy customization and extension.
                 </p>
                 <div class="project-tech">
                   <span>HTML</span>
@@ -689,24 +171,30 @@
               <div class="contact-methods">
                 <div class="contact-method">
                   <div class="contact-icon">📧</div>
-                  <h4>Email</h4>
-                  <p>satriafebriandanu@gmail.com</p>
+                  <div>
+                    <h4>Email</h4>
+                    <p>satriafebriandanu@gmail.com</p>
+                  </div>
                 </div>
-                <div class="contact-method">
+                <!-- <div class="contact-method">
                   <div class="contact-icon">📱</div>
-                  <h4>Phone</h4>
-                  <p>+62-821-7721-3800</p>
-                </div>
+                  <div>
+                    <h4>Phone</h4>
+                    <p>+62-821-7721-3800</p>
+                  </div>
+                </div> -->
                 <div class="contact-method">
                   <div class="contact-icon">📍</div>
-                  <h4>Location</h4>
-                  <p>Bandung, Indonesia</p>
+                  <div>
+                    <h4>Location</h4>
+                    <p>Bandung, Indonesia</p>
+                  </div>
                 </div>
               </div>
               <div class="social-links">
-                <a href="" class="social-link">GitHub</a>
-                <a href="" class="social-link">LinkedIn</a>
-                <a href="" class="social-link">Twitter</a>
+                <a href="https://github.com/ratrifa" target="_blank" class="social-link"><i class="bi bi-github"></i></a>
+                <a href="https://linkedin.com/in/satriafebry" target="_blank" class="social-link"><i class="bi bi-linkedin"></i></a>
+                <a href="https://x.com/ratrifaa" target="_blank" class="social-link" ><i class="bi bi-twitter-x"></i></a>
               </div>
             </div>
             <div class="contact-form">
@@ -737,8 +225,7 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <p class="copyright">&copy; 2025 Satria Febry. All rights reserved.</p>
-          <p>Built with HTML, CSS</p>
+          <p>&copy; 2025 Satria Febry. All rights reserved.</p>
         </div>
       </div>
     </footer>
